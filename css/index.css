@@ -1,39 +1,6 @@
-body{
-    background-color: #fff176 ;
-}
-
-ul{
-    font-family: "Baloo 2", sans-serif; /* fuente */
-    list-style-type:none;
-    margin: 0;
-    padding: 0;
-    width: 100px;
-    border-radius: 10%;
-    overflow:hidden; /*ayuda al hover, para que no coloree por fuera*/
-    box-shadow: 4px 4px 0 #000; /* sombra */
-    background-color: #ff69b4; 
-    position: fixed; /* lo fijo */
-    top:50%; /* esto lo complemento con transform */
-    transform:translate(0%, -50%); /* Muevo un 50% del tamaño de ul hacia arriba, para que quede BIEN centrado */
-    box-shadow:radial-gradient(#000 1px, transparent 1px); /* sombra radial */
-}
-
-li a{
-    display: block; /* todo el bloque --> enlace */
-    color: #333; /* color texto */
-    padding: 8px 16px;
-    text-decoration: none; /* -subrayado */
-}
-
-li a:hover{
-    font-weight: 700; /* negrita */
-    background-color: #ba68c8; /* paso el mouse -> color */
-    color: white; /* paso el mouse -> color texto */
-}
-
+@import url(menu.css);
 .contenedorPrincipal{
     display: flex;
     justify-content: center;
     height: 100vh;
 }
-
