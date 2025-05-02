@@ -1,11 +1,22 @@
 @import url(menu.css);
-.contenedorPrincipal{
+.contenedorPrincipal{ /*Para contener posiblemente varias maquinas */
     display: flex;
     justify-content: center;
+}
+
+.contenedorSecundario1{ /*Contiene la maquina central*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     height: 100vh;
 }
+.contenedorSecundario1 img { /*Esto hace que la imagen se acomode a X tamaño de la caja que se hizo arriba */
+    height:90%;
+    width: auto;
+}
+
 .contenedorMenu{
     display: flex;
     align-items:center;
-    justify-content:left;
+    transform:translate(0%, -550%);
 }
