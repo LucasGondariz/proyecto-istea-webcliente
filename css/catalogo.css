@@ -1,12 +1,15 @@
 @import url(menu.css);
 
+
+
 .catalogo{
+    padding-left: 110px; /*Para que no pise el menu*/
+    padding-top: 50px;
     display:grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Para las fracciones, se puede pensar como cuantos de 200px minimo entran en el tamaño de pantalla */
+    grid-template-columns: repeat(auto-fill, 450px); /* Para las fracciones, se puede pensar como cuantos de 200px minimo entran en el tamaño de pantalla */
     gap: 10px;
-    max-width: 80%;
+    max-width: 1400px; /*lo limito para MAXIMO 3 productos*/
     margin: auto;
-    
 }
 
 .producto{
@@ -15,15 +18,23 @@
     background-color: #fff; /*Auxiliar para ver los contenedores*/
     border-radius: 15px;
 }
+.infoProducto{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+}
+.contenedorMenu{
+    display:flex;
+    flex-direction: row;
 
-.producto img{
-    width:40%;
-    height:auto;
 }
 
-.producto form{
-    display:flex;
-    flex-direction:column;
-    
+input[type="number"]{
+    width:20%;
+}
+
+.producto img{
+    width: 196px;
 }
 
