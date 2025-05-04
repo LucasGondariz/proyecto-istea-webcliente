@@ -2,40 +2,28 @@
 
 .catalogo{
     display:grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Para las fracciones, se puede pensar como cuantos de 200px minimo entran en el tamaño de pantalla */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Para las fracciones, se puede pensar como cuantos de 200px minimo entran en el tamaño de pantalla */
     gap: 10px;
+    max-width: 80%;
+    margin: auto;
+    
 }
 
 .producto{
     display:flex;
-    flex-direction: column;
+    flex-direction: row;
     background-color: #fff; /*Auxiliar para ver los contenedores*/
     border-radius: 15px;
 }
 
+.producto img{
+    width:40%;
+    height:auto;
+}
 
-
-/*
-.catalogo{
+.producto form{
     display:flex;
-    justify-content: center;
-    flex-flow: wrap row;
-    align-items: center;
+    flex-direction:column;
+    
 }
 
-.catalogo article{
-    max-height: 30vh;
-    max-width: 30vh;
-}
-
-.catalogo img{
-    height:90%;
-    width: 90%;
-}
-
-.contenedorMenu{
-    display:flex;
-    width:fit-content;
-    min-width: 0;
-}
-*/
