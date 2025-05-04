@@ -7,8 +7,9 @@ body{
     list-style-type:none;
     margin: 0;
     padding: 0;
-    border-radius: 0% 10% 10% 0%;
-    width: 100px;
+    left: 0;
+    border-radius: 0px 20px 20px 0px;
+    width: 110px;
     overflow:hidden; /*ayuda al hover, para que no coloree por fuera*/
     box-shadow: 4px 4px 0 #000; /* sombra */
     background-color: #ff69b4; 
@@ -18,11 +19,28 @@ body{
     /*box-shadow:radial-gradient(#000 1px, transparent 1px); /* sombra radial */
 }
 
+.menuCarrito{
+    font-family: "Baloo 2", sans-serif; /* fuente */
+    list-style-type:none;
+    margin: 0;
+    padding: 0;
+    top:0;
+    border-radius: 0px 0px 20px 20px;
+    width: 110px;
+    overflow:hidden; /*ayuda al hover, para que no coloree por fuera*/
+    box-shadow: 4px 4px 0 #000; /* sombra */
+    background-color: #ff69b4; 
+    position: fixed; /* lo fijo */
+    right:5%; /* esto lo complemento con transform */
+}
+
 li a{
     display: block; /* todo el bloque --> enlace */
     color: #333; /* color texto */
-    padding: 8px 16px;
+    padding: 16px;
+    text-align: center;
     text-decoration: none; /* -subrayado */
+    font-size: 20px;
 }
 
 li a:hover{

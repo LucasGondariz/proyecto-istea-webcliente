@@ -3,7 +3,7 @@
 
 
 .catalogo{
-    padding-left: 110px; /*Para que no pise el menu*/
+    padding-left: 120px; /*Para que no pise el menu*/
     padding-top: 50px;
     display:grid;
     grid-template-columns: repeat(auto-fill, 450px); /* Para las fracciones, se puede pensar como cuantos de 200px minimo entran en el tamaño de pantalla */
