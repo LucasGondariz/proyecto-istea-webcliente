@@ -1,22 +1,19 @@
-#barraSuperior{
+#barraSuperior, #barraInferior{
     background-color: #5ebae9; /* color de fondo */
     height: 30px;
     width:100%;
     padding:0;
-    top:0;
     position:fixed;
     margin:0;
+}
+
+#barraSuperior{
+    top:0;
     box-shadow: 2px 2px 4px #000;
 }
 
 #barraInferior{
-    background-color: #5ebae9; /* color de fondo */
-    height: 30px;
-    width:100%;
-    padding:0;
     bottom:0;
-    position:fixed;
-    margin:0;
     box-shadow: -2px -2px 4px #000;
 }
 
