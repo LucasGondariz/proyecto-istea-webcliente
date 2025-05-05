@@ -9,6 +9,24 @@
     box-shadow: 2px 2px 4px #000;
 }
 
+#barraInferior{
+    background-color: #5ebae9; /* color de fondo */
+    height: 30px;
+    width:100%;
+    padding:0;
+    bottom:0;
+    position:fixed;
+    margin:0;
+    box-shadow: -2px -2px 4px #000;
+}
+
+#barraInferiorBotones{
+    display:flex;
+    justify-content: space-around;
+    padding-left:20%;
+    padding-right:20%;
+}
+
 body{
     background-color: #fff176 ;
     margin:0;
