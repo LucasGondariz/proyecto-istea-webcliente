@@ -1,5 +1,27 @@
+#barraSuperior{
+    background-color: #5ebae9; /* color de fondo */
+    height: 30px;
+    width:100%;
+    padding:0;
+    top:0;
+    position:fixed;
+    margin:0;
+    box-shadow: 2px 2px 4px #000;
+}
+
 body{
     background-color: #fff176 ;
+    margin:0;
+    padding:0;
+}
+
+.header{
+    background-color: #ff69b4; /* color de fondo */
+    padding: 10px; /* espacio interno */
+    text-align: center; /* centrado */
+    font-size: 35px; /* tamaño de fuente */
+    color: white; /* color de texto */
+    font-family: "Baloo 2", sans-serif; /* fuente */
 }
 
 .menuPrincipal{
@@ -11,7 +33,7 @@ body{
     border-radius: 0px 20px 20px 0px;
     width: 110px;
     overflow:hidden; /*ayuda al hover, para que no coloree por fuera*/
-    box-shadow: 4px 4px 0 #000; /* sombra */
+    box-shadow: 2px 2px 4px #000; /* sombra */
     background-color: #ff69b4; 
     position: fixed; /* lo fijo */
     top:50%; /* esto lo complemento con transform */
@@ -28,10 +50,21 @@ body{
     border-radius: 0px 0px 20px 20px;
     width: 110px;
     overflow:hidden; /*ayuda al hover, para que no coloree por fuera*/
-    box-shadow: 4px 4px 0 #000; /* sombra */
+    box-shadow: 2px 2px 4px #000; /* sombra */
     background-color: #ff69b4; 
     position: fixed; /* lo fijo */
-    right:5%; /* esto lo complemento con transform */
+    right:5%; 
+}
+.botonCarrito{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items: center;
+}
+
+.menuCarrito img{
+    width: 60%;
+    height: auto;
 }
 
 li a{
@@ -47,4 +80,8 @@ li a:hover{
     font-weight: 700; /* negrita */
     background-color: #ba68c8; /* paso el mouse -> color */
     color: white; /* paso el mouse -> color texto */
+}
+
+li a:hover .iconos{
+    filter:brightness(100);
 }
