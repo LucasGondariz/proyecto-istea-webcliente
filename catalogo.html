@@ -166,14 +166,18 @@
     <div id="barraInferior">
         <div id="barraInferiorBotones">
             <form class="contenedorMenu" action="">
+                <div>
                 <label for="enDescuento">En descuento:</label>
                 <input type="checkbox" id="enDescuento" name="enDescuento" value="true">
+                </div>
+
                 <div id="barraRangoPrecio">
                     <label for="valorMinimo">0</label>
                     <input type="range" id="rangoPrecio" name="rangoPrecio" value="2500" min="0" max="5000" step="100">
                     <label for="valorMaximo">5000</label>
                 </div>
 
+                <div>
                 <label for="coleccion">Coleccion:</label>
                     <select id="opcionColeccion">
                         <option value="todos" selected>Todas</option>
@@ -182,13 +186,16 @@
                         <option value="personajes">Personajes</option>
                         <option value="varios">Varios</option> 
                 </select>
+                </div>
 
+                <div>
                 <label for="ordenar">Ordenar por:</label>
                     <select id="opcionOrdenar">
-                    <option value="masNuevo" selected>Mas nuevo</option>
-                    <option value="mayorPrecio">Mayor precio</option>
-                    <option value="menorPrecio">Menor precio</option> 
-                </select>
+                        <option value="masNuevo" selected>Mas nuevo</option>
+                        <option value="mayorPrecio">Mayor precio</option>
+                        <option value="menorPrecio">Menor precio</option> 
+                    </select>
+                </div>
             </form>
         </div>
     </div>

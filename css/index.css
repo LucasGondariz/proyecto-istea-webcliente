@@ -39,3 +39,20 @@
     max-width: 80%; 
     height: auto;     
 }
+
+#barraInferiorBotones{
+    display:flex;
+    flex-direction: row;
+    justify-content:space-around;
+    padding-left:20%;
+    padding-right:20%;
+}
+
+#barraInferiorBotones .botones{
+    transform: scale(4) translateY(-3px);
+    color:#333;
+    text-decoration: none;
+    background-color:#5ebae9;
+    border-radius: 10px 10px 0px 0px;
+    border-color:aqua;
+}

@@ -1,7 +1,5 @@
 @import url(menu.css);
 
-
-
 .catalogo{
     padding-left: 120px; /*Para que no pise el menu*/
     padding-top: 50px;
@@ -24,10 +22,18 @@
     justify-content: center;
     padding: 10px;
 }
+
+#barraInferiorBotones{
+    Height:100%;
+}
 .contenedorMenu{
     display:flex;
     flex-direction: row;
-
+    justify-content:space-around;
+    align-items:center;
+    height: 100%;
+    padding-left:15%;
+    padding-right:15%;
 }
 
 input[type="number"]{
