@@ -39,37 +39,31 @@ body{
     font-family: "Baloo 2", sans-serif; /* fuente */
 }
 
-.menuPrincipal{
+.menuPrincipal, .menuCarrito{
     font-family: "Baloo 2", sans-serif; /* fuente */
     list-style-type:none;
     margin: 0;
     padding: 0;
-    left: 0;
-    border-radius: 0px 20px 20px 0px;
     width: 110px;
     overflow:hidden; /*ayuda al hover, para que no coloree por fuera*/
     box-shadow: 2px 2px 4px #000; /* sombra */
     background-color: #ff69b4; 
     position: fixed; /* lo fijo */
+}
+
+.menuPrincipal{
+    border-radius: 0px 20px 20px 0px;
+    left: 0;
     top:50%; /* esto lo complemento con transform */
     transform:translate(0%, -50%); /* Muevo un 50% del tamaño de ul hacia arriba, para que quede BIEN centrado */
-    /*box-shadow:radial-gradient(#000 1px, transparent 1px); /* sombra radial */
 }
 
 .menuCarrito{
-    font-family: "Baloo 2", sans-serif; /* fuente */
-    list-style-type:none;
-    margin: 0;
-    padding: 0;
-    top:0;
     border-radius: 0px 0px 20px 20px;
-    width: 110px;
-    overflow:hidden; /*ayuda al hover, para que no coloree por fuera*/
-    box-shadow: 2px 2px 4px #000; /* sombra */
-    background-color: #ff69b4; 
-    position: fixed; /* lo fijo */
+    top:0;
     right:5%; 
 }
+
 .botonCarrito{
     display: flex;
     flex-direction: row;
