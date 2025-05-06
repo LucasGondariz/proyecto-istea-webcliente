@@ -1,4 +1,8 @@
 @import url(menu.css);
+body{
+    display:flex;
+    flex-direction:column;
+}
 
 .contenedorPrincipal{ 
     display:grid;

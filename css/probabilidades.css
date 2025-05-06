@@ -1,8 +1,54 @@
 @import url(menu.css);
 
-table,th,td{
-    border: 1px solid black;
+body{
+    display:flex;
+    flex-direction:column;
+}
+
+.contenedorPrincipal{
+    max-width:900px;
+    margin:auto;
+    padding: 20px;
+    background-color: antiquewhite;
+    border-radius: 20px;
+
+}
+
+h1{
+    text-align:center;
+    margin-top:30px;
+}
+
+.probabilidades{
+    width:90%;
+    table-layout: fixed; /* para que el ancho de las columnas sea dinamico*/
+    margin:auto;
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 20px;
+    filter: drop-shadow(4px 4px 2px rgba(0, 0, 0, 0.2));
+}
+
+th{
+    background-color:#5ebae9;
+    color:white;
+    padding: 10px;
     border-radius: 10px;
+    overflow-wrap: break-word;
+    font-size: 10px;
+}
+
+td{
     text-align: center;
 }
 
+
+/*
+thead,tbody,th,td{
+    width:auto;
+}
+*/
+
+tr:hover{
+    background-color:#fff59d;
+}
