@@ -44,3 +44,9 @@ input[type="number"]{
     width: 196px;
 }
 
+button[type="button"],input[type="number"]{
+    border-radius: 5px;
+    cursor: pointer;
+    border: 0px;
+    background-color:#5ebae9;
+}

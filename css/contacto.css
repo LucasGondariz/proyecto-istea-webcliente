@@ -38,3 +38,9 @@ body{
             cursor: pointer;
             font-size: 20px;
 }
+
+.formularioContacto button:hover{
+    background-color: #ff1493; /* Color ejemplo */
+    color: white;
+    font-weight: 700; /* negrita */
+}

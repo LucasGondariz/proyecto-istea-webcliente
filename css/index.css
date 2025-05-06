@@ -34,6 +34,14 @@
     align-items:center;
 }
 
+.contenedorMenu button[type="button"],input[type="number"]{
+    border-radius: 5px;
+    cursor: pointer;
+    border-style:dashed;
+    border-color: aqua;
+    background-color:#fff176;
+}
+
 .contenedorSecundario img {
     min-width: 191px;
     max-width: 80%; 
@@ -53,6 +61,12 @@
     color:#333;
     text-decoration: none;
     background-color:#5ebae9;
+    cursor: pointer;
     border-radius: 10px 10px 0px 0px;
     border-color:aqua;
+}
+
+#barraInferiorBotones .botones:hover{
+    background-color: #237096;
+    color: white;
 }
