@@ -7,6 +7,25 @@ body{
     min-height:100vh;
 }
 
+
+/* Muy rustico, modificar despues */
+#barraSuperior .contenidoSuperior {
+    display: flex;
+    align-items: center;
+    padding:20px;
+    width:150px;
+    background-color: #5ebae9;
+    height: 300%;
+    border-radius: 30px;
+}
+
+#barraSuperior .logoMarca {
+    height: 150px;
+    width: auto; 
+}
+/*=================================================*/
+
+
 #barraSuperior, #barraInferior{
     background-color: #5ebae9; /* color de fondo */
     height: 30px;
