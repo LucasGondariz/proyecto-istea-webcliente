@@ -42,13 +42,20 @@ td{
     text-align: center;
 }
 
-
-/*
-thead,tbody,th,td{
-    width:auto;
-}
-*/
-
 tr:hover{
     background-color:#fff59d;
+}
+
+@media screen and (min-width: 769px) and (max-width: 1279px)  {
+    .contenedorPrincipal{
+        padding-left:80px;
+        padding-right:80px;
+    }
+}
+
+@media screen and (max-width: 768px)  {
+    .contenedorPrincipal{
+        padding-left:80px;
+        padding-right:0px;
+    }
 }

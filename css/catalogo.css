@@ -1,7 +1,8 @@
 @import url(menu.css);
 
 .catalogo{
-    padding-left: 120px; /*Para que no pise el menu*/
+    padding-left: 200px; /*Para que no pise el menu*/
+    padding-right:200px;
     padding-top: 50px;
     display:grid;
     grid-template-columns: repeat(auto-fill, 450px); /* Para las fracciones, se puede pensar como cuantos de 200px minimo entran en el tamaño de pantalla */
@@ -13,6 +14,8 @@
 .producto{
     display:flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
     background-color: #fff; /*Auxiliar para ver los contenedores*/
     border-radius: 15px;
 }
@@ -49,4 +52,51 @@ button[type="button"],input[type="number"]{
     cursor: pointer;
     border: 0px;
     background-color:#5ebae9;
+}
+
+@media screen and (min-width: 769px) and (max-width: 1279px)  {
+    .contenedorMenu{
+        padding-left: 5%;
+        padding-right: 5%
+    }
+    .producto img{
+        width: 160px;
+    }
+}
+
+@media screen and (max-width: 768px)  {
+    .contenedorMenu{
+        align-items:center;
+        align-content: center;
+        justify-content:space-between;
+        height: 100%;
+        padding-left:1%;
+        padding-right:1%;
+        
+    }
+    .contenedorMenu div{
+        display:flex;
+        flex-direction: column;
+    }
+
+    .producto img{
+        width: 15em;
+        height: 15em;
+    }
+    .catalogo{
+        padding-left: 110px; /*Para que no pise el menu*/
+        padding-right:10px;
+        padding-top: 100px;
+        display:flex;
+        flex-direction: column;
+        gap: 10px;
+        margin: auto;
+    }
+    #barraInferior{
+        height: 80px;
+    }
+    footer{
+        height: 140px; /* Tengo que modificar para hacerlo mas visible */
+    }
+
 }

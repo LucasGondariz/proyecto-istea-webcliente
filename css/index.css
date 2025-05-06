@@ -9,8 +9,8 @@ body{
     grid-template-columns: 15% 15% 40% 15% 15%;
     grid-template-rows: 20% 20% 20% 20% 20%;
     padding-top:50px;
-    padding-left: 120px; 
-    padding-right:120px;
+    padding-left: 100px; 
+    padding-right:100px;
 }
 #maquinaIzquierda{
     grid-column-start: 2;
@@ -51,6 +51,10 @@ body{
     max-width: 80%; 
     height: auto;     
 }
+#maquinaCentral img{
+    max-height: 70vh;
+
+}
 
 #barraInferiorBotones{
     display:flex;
@@ -73,4 +77,53 @@ body{
 #barraInferiorBotones .botones:hover{
     background-color: #237096;
     color: white;
+}
+
+@media screen and (min-width: 769px) and (max-width: 1279px)  {
+    #barraInferiorBotones{
+        padding-left:15%;
+        padding-right:15%;
+    }
+    #barraInferiorBotones .botones{
+        transform: scale(2) translateY(-3px);
+    }
+    .contenedorSecundario img {
+        min-width: 150px;
+        max-width: 80%;
+        padding-top:10px;     
+    }
+    .infoProducto h2,.infoProducto p{
+        font-size: 0.9em;
+    }
+}
+@media screen and (max-width: 768px)  {
+    #barraInferiorBotones{
+        padding-left:5%;
+        padding-right:5%;
+    }
+    #barraInferiorBotones .botones{
+        transform: scale(3) translateY(-3px);
+    }
+    .contenedorSecundario img {
+        min-width: 150px;
+        max-width: 80%;
+        padding-top:10px;  
+    }
+    .contenedorSecundario{ 
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 80vh;
+    }
+
+    .contenedorPrincipal{ 
+        display:flex;
+        flex-direction:column;
+        padding:50px;
+    }
+
+    .infoProducto h2,.infoProducto p{
+        font-size: 1.4em;
+    }
+
 }

@@ -129,14 +129,65 @@ footer{
     flex-direction:row;
     list-style: none;
     background-color: #ff69b4;
+    overflow:hidden;
     padding-left: 0px;
     border-radius: 20px 20px 0px 0px;
     filter: drop-shadow(4px -4px 2px rgba(0, 0, 0, 0.4));
-    z-index:-1;
+    /*z-index:-1;*/ /* Lo elimino para que no haya problemas al clickear los links */
 }
 
 .footerIconos img{
     width: 30px;
     height: 30px;
     margin: 0 0px;
+}
+
+@media screen and (min-width: 769px) and (max-width: 1279px)  {
+    #barraSuperior .contenidoSuperior {
+        padding:10px;
+        width:80px;
+        height: 200%;
+        border-radius: 30px;
+    }
+    
+    #barraSuperior .logoMarca {
+        height: 80px;
+        width: auto; 
+    }
+    .menuCarrito{
+        width: 80px;
+        right:3%; 
+    }
+
+    .menuPrincipal{
+        width: 100px;
+    }
+    li a,label{
+        font-size: 16px;
+    }
+    li a{
+        padding: 12px;
+    }
+}
+
+@media screen and (max-width: 768px)  {
+    .menuPrincipal{
+        width: 100px;
+    }
+    li a,label{
+        font-size: 16px;
+    }
+    li a{
+        padding: 12px;
+    }
+    #barraSuperior .contenidoSuperior {
+        padding:5px;
+        width:100px;
+        height: 100px;
+        border-radius: 30px;
+    }
+    #barraSuperior .logoMarca {
+        height: 100px;
+        width: auto; 
+    }
 }
