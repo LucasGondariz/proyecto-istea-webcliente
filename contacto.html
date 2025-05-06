@@ -45,7 +45,7 @@
 
             <h3>Mapa de ubicacion</h3>
             <div id="mapa">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.1234567890123!2d-58.12345678901234!3d-34.123456789012345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a1234567890123%3A0x1234567890123456!2sAv.%20Siempre%20Viva%20123%2C%20Local%2032%2C%20CP%2012345%2C%20Buenos%20Aires%2C%20Argentina!5e0!3m2!1ses-419!2sus!4v1234567890123" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d948.5549750570844!2d-58.374851656807735!3d-34.60325062704703!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccacd0337014d%3A0x36fbe156b97728b3!2zNDMwIC8g5Zub5LiJ44CH!5e0!3m2!1ses!2sar!4v1746486099513!5m2!1ses!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </section>
 
@@ -60,30 +60,58 @@
         <section id="contacto">
             <h2>¿Tenes dudas?</h2>
             <p>Si tenes alguna consulta antes de visitarnos, podes escribirnos un correo y te vamos a estar contactando</p>
+            <form action="" method="GET" class="formularioContacto">
+                <div>
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                <div>
+                    <label for="email">Correo Electronico:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div>
+                    <label for="asunto">Asunto:</label>
+                    <input type="text" id="asunto" name="asunto" required>
+                </div>
+                <div>
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea id="mensaje" name="mensaje" rows="3" required></textarea>
+                </div>
+                <div>
+                    <button type="submit">Enviar Mensaje</button>
+                </div>
+            </form>
+        </div>
+    <div id="barraInferior">
+        <div id="barraInferiorBotones">
             
-
-
+        </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <footer>
+        <div class="footerContactos">
+            <ul class="footerIconos">
+                <li>
+                    <a href="https://facebook.com/auxiliar">
+                        <img src="img/facebook.png" alt="Facebook">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://x.com/auxiliar">
+                        <img src="img/x.png" alt="X">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://instagram.com/auxiliar">
+                        <img src="img/instagram.png" alt="Instagram">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://wa.me/5555555555">
+                        <img src="img/whatsapp.png" alt="WhatsApp">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>
 </body>
 </html>

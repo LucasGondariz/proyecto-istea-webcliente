@@ -82,3 +82,36 @@ li a:hover{
 li a:hover .iconos{
     filter:brightness(100);
 }
+
+footer{
+    height: 90px; /* Tengo que modificar para hacerlo mas visible */
+    width: 100%;
+}
+
+.footerContactos{
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:end;
+    position:top;
+    
+    height:90px;
+    width:100%;
+}
+
+.footerIconos{
+    display:flex;
+    flex-direction:row;
+    list-style: none;
+    background-color: #ff69b4;
+    padding-left: 0px;
+    border-radius: 20px 20px 0px 0px;
+    filter: drop-shadow(4px -4px 2px rgba(0, 0, 0, 0.4));
+    z-index:-1;
+}
+
+.footerIconos img{
+    width: 30px;
+    height: 30px;
+    margin: 0 0px;
+}
