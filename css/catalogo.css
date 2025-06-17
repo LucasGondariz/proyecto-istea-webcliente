@@ -1,5 +1,11 @@
 @import url(menu.css);
 
+body{
+    display:flex;
+    flex-direction: column;
+}
+
+
 .catalogo{
     padding-left: 200px; /*Para que no pise el menu*/
     padding-right:200px;
@@ -7,8 +13,9 @@
     display:grid;
     grid-template-columns: repeat(auto-fill, 450px); /* Para las fracciones, se puede pensar como cuantos de 200px minimo entran en el tamaño de pantalla */
     gap: 10px;
-    max-width: 1400px; /*lo limito para MAXIMO 3 productos*/
     margin: auto;
+    max-width: 80vw;
+    /*max-width: 1400px; /*lo limito para MAXIMO 3 productos*/
 }
 
 .producto{
