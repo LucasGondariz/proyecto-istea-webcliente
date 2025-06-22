@@ -4,18 +4,17 @@ const TABLE_NAME = 'products';
 const proxy = 'https://cors-anywhere.herokuapp.com/';
 const API_URL = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}`; // Se usa $ y no concat para que sea más legible - Tambien los backticks `` son como las comillas pero permiten interpolación de variables
 
-
+/*
 fetch(API_URL, { 
     headers: {'Authorization': `Bearer ${API_TOKEN}`} 
 })
 .then(res => console.log(res.ok 
     ? 'Autorizado. El token y la URL son correctos.' 
     : `NO Autorizado. Revisa tus datos. (Error: ${res.status})`
-));
-/*
+));*/
+
 const getProducts = async () => {
     const response = await fetch(API_URL, {
-        method:'POST',
         headers: {
             'Authorization': `Bearer ${API_TOKEN}`,
             'Content-Type': 'application/json'
