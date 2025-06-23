@@ -112,17 +112,36 @@ const sortReleaseDate = async () =>{
     const sortedByReleaseDate = list.sort((a, b) => {
         return new Date(b.fields.releaseDate) - new Date(a.fields.releaseDate); // convierte las fechas en objeto date y resta, de acuerdo a esta comparacion, va ordenando (Como funciona se saca de: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)
     });
-    console.log('sortedByReleaseDate', sortedByReleaseDate);
+    console.log('Funcion sortReleaseDate', sortedByReleaseDate);
     return sortedByReleaseDate;
 }
 
 // recorto la lista a los 3 mas nuevos
 const getTop3Products = async () => {
     const sortedList = await sortReleaseDate();
-    console.log('sortedList.slice(0, 3)', sortedList.slice(0, 3));
+    console.log('Funcion getTop3Products', sortedList.slice(0, 3));
     return sortedList.slice(0, 3); // Devuelvo los primeros 3 elementos del array
 }
 
 getTop3Products();
 
+// Funcion para ordenar por precio (menor a mayor)
+const sortByPrice = async () => {
+    const list = await getProducts();
+    const sortedByPrice = list.sort((a, b) => {
+        return a.fields.price - b.fields.price; // Ordena de menor a mayor precio
+    });
+    console.log('Funcion sortedByPrice (menos a mas)', sortedByPrice);
+    return sortedByPrice;
+}
+sortByPrice();
 
+// Funcion para traer los productos con envio gratis
+const getFreeShippingProducts = async () => {
+    const list = await getProducts();
+    const freeShippingProducts = list.filter(product => product.fields.freeShipping == "TRUE"); // Filtra los productos que tienen freeShipping como true
+    console.log('Funcion getFreeShippingProducts', freeShippingProducts);
+    return freeShippingProducts;
+}
+
+getFreeShippingProducts();
