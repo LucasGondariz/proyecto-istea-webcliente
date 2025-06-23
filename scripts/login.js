@@ -8,7 +8,6 @@ import * as app from './app.js';
 const botonIngresar = document.getElementById('botonIngresar');
 botonIngresar.addEventListener('click', (event) => {
     console.log('Botón ingresar presionado');
-    //event.preventDefault(); // Evita que el formulario se envíe y recargue la página
     login();
 });
 
@@ -19,7 +18,8 @@ function login(){
 
     if (email === 'admin' && password === 'admin') {
         console.log('Login exitoso');
-        windows.location.href = 'crud.html';
+        event.preventDefault(); // Evita el comportamiento por default del navegador / boton formulario que seria recargar
+        window.location.href = './crud.html';
     }
     else {
         console.log('Login fallido');
