@@ -3,6 +3,8 @@ const BASE_ID = 'appSPKO7TLX1jBPct';
 const TABLE_NAME = 'products';
 const API_URL = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}`; // Se usa $ y no concat para que sea más legible - Tambien los backticks `` son como las comillas pero permiten interpolación de variables
 
+let top3Products = []; // Uso let para poder reasignar luego, POR ESO NO ES CONST
+
 // Funcion TEST que trae la tabla por consola
 const getProductsTEST = async () => {
     const response = await fetch(API_URL, {
@@ -116,14 +118,6 @@ export const sortReleaseDate = async () =>{
     return sortedByReleaseDate;
 }
 
-// recorto la lista a los 3 mas nuevos
-export const getTop3Products = async () => {
-    const sortedList = await sortReleaseDate();
-    console.log('Funcion getTop3Products', sortedList.slice(0, 3));
-    return sortedList.slice(0, 3); // Devuelvo los primeros 3 elementos del array
-}
-
-//getTop3Products();
 
 // Funcion para ordenar por precio (menor a mayor)
 export const sortByPrice = async () => {
@@ -179,10 +173,37 @@ function createProductCardIndex(product, index){
     return card;
 } 
 
-export const renderProductsIndex = async () =>{
-    const list = await getTop3Products();
-    list.forEach((product,index) => {
+// recorto la lista a los 3 mas nuevos
+export const getTop3Products = async () => {
+    const sortedList = await sortReleaseDate();
+    console.log('Funcion getTop3Products', sortedList.slice(0, 3));
+    return sortedList.slice(0, 3); // Devuelvo los primeros 3 elementos del array
+}
+
+//getTop3Products();
+
+export const inicializarTop3Products = async () => {
+    top3Products = await getTop3Products();
+    console.log('Funcion inicializarTop3Products', top3Products);
+    renderProductsIndex(); // Lo debo llamar desde aca para que se haga luego del await
+}
+
+export function renderProductsIndex (){
+    top3Products.forEach((product,index) => {
         const card = createProductCardIndex(product,index);
         gridIndex.appendChild(card);
     })
+    console.log('renderizado');
+}
+
+export function moverIzquierda() {
+    top3Products.push(top3Products.shift()); // Push agrega al final del array y shift saca el primero y lo devuelve
+    renderProductsIndex();
+    console.log('boton izq --> renderizado');
+}
+
+export function moverDerecha() {
+    top3Products.unshift(top3Products.pop()); // Unshift agrega al principio del array y pop saca el ultimo y lo devuelve
+    renderProductsIndex();
+    console.log('boton der --> renderizado');
 }

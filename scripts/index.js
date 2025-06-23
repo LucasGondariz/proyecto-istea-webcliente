@@ -5,4 +5,23 @@ const API_URL = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}`; // Se us
 
 import * as app from './app.js';
 
-app.renderProductsIndex();
+
+app.inicializarTop3Products();
+
+
+
+const botonIzquierda = document.getElementById('botonIzquierda');
+const botonDerecha = document.getElementById('botonDerecha');
+const contenedorPrincipal = document.querySelector('.contenedorPrincipal');
+
+botonDerecha.addEventListener('click', () => {
+    console.log('Botón derecho presionado');
+    contenedorPrincipal.innerHTML = "";
+    app.moverDerecha();
+});
+
+botonIzquierda.addEventListener('click', () => {
+    console.log('Botón izquierdo presionado');
+    contenedorPrincipal.innerHTML = "";
+    app.moverIzquierda();
+});
