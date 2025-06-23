@@ -42,6 +42,43 @@ const addToAirtable = async (product) => {
     console.log(responseData);
 }
 
+const cajaSelectorProducto = document.querySelector('#cajaSelectorProducto');
+
+//Funcion para actualizar el selector de productos
+const updateSelector = async () => {
+    cajaSelectorProducto.innerHTML = "";
+    const list = await app.getProducts();
+    console.log('Lista de productos:', list);
+    list.forEach(product => {
+        const option = document.createElement('option');
+        option.value = product.id; // interno de airtable, no se si se podra usar
+        option.textContent = product.fields.name; // lo que se ve en el select
+        //console.log('EstadoDeOption', option);
+        cajaSelectorProducto.appendChild(option);
+    })
+}
+
+//Funcion para escuchar el selector de productos
+const cajaSelectorAccion = document.getElementById('cajaSelectorAccion');
+const selectorProducto = document.getElementById('selectorProducto');
+selectorProducto.style.display = 'none';
+cajaSelectorAccion.addEventListener('change', (event) => {
+    const opcionSeleccionada = event.target.value;
+    console.log('Opción seleccionada:', opcionSeleccionada);
+    switch (opcionSeleccionada) {
+        case 'create':
+            cajaSelectorProducto.innerHTML = "";
+            selectorProducto.style.display = 'none';
+            break;
+        case 'update':
+        case 'delete':
+            updateSelector();
+            selectorProducto.style.display = 'block';
+            break;
+    }
+});
+
+
 const botonRealizarAccion = document.getElementById('submit-button');
 botonRealizarAccion.addEventListener('click', (event) => {
     event.preventDefault();
@@ -52,8 +89,10 @@ botonRealizarAccion.addEventListener('click', (event) => {
             addToAirtable(addProduct());
             break;
         case 'update':
+            updateAirtable();
             break;
         case 'delete':
+            deleteAirtable();
             break;
     }
 });
