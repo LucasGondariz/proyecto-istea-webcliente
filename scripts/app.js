@@ -22,7 +22,7 @@ getProductsTEST();
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
-const getProducts = async () => {
+export const getProducts = async () => {
     const response = await fetch(API_URL, {
         headers: {
             'Authorization': `Bearer ${API_TOKEN}`,
@@ -96,7 +96,7 @@ function createProductCard(product){
     return card;
 } 
 
-const renderProducts = async () =>{
+export const renderProductsCatalogo = async () =>{
     const list = await getProducts();
     list.forEach(product => {
         const card = createProductCard(product);
@@ -104,10 +104,10 @@ const renderProducts = async () =>{
     })
 }
 
-renderProducts();
+//renderProducts();
 
 //Pruebo ordenar por fecha
-const sortReleaseDate = async () =>{
+export const sortReleaseDate = async () =>{
     const list = await getProducts();
     const sortedByReleaseDate = list.sort((a, b) => {
         return new Date(b.fields.releaseDate) - new Date(a.fields.releaseDate); // convierte las fechas en objeto date y resta, de acuerdo a esta comparacion, va ordenando (Como funciona se saca de: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)
@@ -117,16 +117,16 @@ const sortReleaseDate = async () =>{
 }
 
 // recorto la lista a los 3 mas nuevos
-const getTop3Products = async () => {
+export const getTop3Products = async () => {
     const sortedList = await sortReleaseDate();
     console.log('Funcion getTop3Products', sortedList.slice(0, 3));
     return sortedList.slice(0, 3); // Devuelvo los primeros 3 elementos del array
 }
 
-getTop3Products();
+//getTop3Products();
 
 // Funcion para ordenar por precio (menor a mayor)
-const sortByPrice = async () => {
+export const sortByPrice = async () => {
     const list = await getProducts();
     const sortedByPrice = list.sort((a, b) => {
         return a.fields.price - b.fields.price; // Ordena de menor a mayor precio
@@ -134,14 +134,77 @@ const sortByPrice = async () => {
     console.log('Funcion sortedByPrice (menos a mas)', sortedByPrice);
     return sortedByPrice;
 }
-sortByPrice();
+//sortByPrice();
 
 // Funcion para traer los productos con envio gratis
-const getFreeShippingProducts = async () => {
+export const getFreeShippingProducts = async () => {
     const list = await getProducts();
     const freeShippingProducts = list.filter(product => product.fields.freeShipping == "TRUE"); // Filtra los productos que tienen freeShipping como true
     console.log('Funcion getFreeShippingProducts', freeShippingProducts);
     return freeShippingProducts;
 }
 
-getFreeShippingProducts();
+//getFreeShippingProducts();
+
+
+const gridIndex = document.querySelector('.contenedorPrincipal');
+
+
+function createProductCardIndex(product){ 
+    const card = document.createElement('div');
+    card.classList.add('contenedorSecundario');
+    card.id.add('maquinaIzquierda');
+
+    const img = document.createElement('img');
+    img.src.add(product.fields.img);
+    img.alt.add(product.fields.name);
+    
+    const div = document.createElement('div');
+    div.classList.add('infoProducto');
+
+    const title = document.createElement('h2');
+    title.textContent = product.fields.name;
+
+    const description = document.createElement('p');
+    description.textContent = product.fields.description;
+
+    const price = document.createElement('p');
+    price.textContent = `Precio:$${product.fields.price}`; //probar si funciona
+
+    const form = document.createElement('form');
+    form.classList.add('contenedorMenu');
+    form.action = "";
+
+    const btnAumentar = document.createElement('button');
+    btnAumentar.type = 'button';
+    btnAumentar.id = 'contenedorSecundario1Aumentar'; // PUEDE SER QUE NECESITE COMILLAS O ESTE MAL
+    btnAumentar.textContent = '▲';
+
+    const btnDisminuir = document.createElement('button');
+    btnDisminuir.type = 'button';
+    btnDisminuir.id = 'contenedorSecundario1Disminuir'; // PUEDE SER QUE NECESITE COMILLAS O ESTE MAL
+    btnDisminuir.textContent = '▼';
+
+    const input = document.createElement('input');
+    input.type = 'number';
+    input.value = '0';
+    input.min = '0';
+
+    const btnComprar = document.createElement('button');
+    btnComprar.type = 'button';
+    btnComprar.id = 'comprarCapsula';
+    btnComprar.textContent = 'Comprar';
+
+    card.appendChild(img);
+    card.appendChild(div);
+    div.appendChild(title);
+    div.appendChild(description);
+    div.appendChild(price);
+    div.appendChild(form);
+    form.appendChild(btnAumentar);
+    form.appendChild(btnDisminuir);
+    form.appendChild(input);
+    form.appendChild(btnComprar);
+
+    return card;
+} 
