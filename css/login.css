@@ -1,0 +1,84 @@
+@import url(menu.css);
+
+body{
+    font-family: "Baloo 2", sans-serif;
+    display:flex;
+    flex-direction:column;
+}
+
+.contenedorPrincipal{
+    max-width:900px;
+    margin:auto;
+    padding: 20px;
+    background-color: antiquewhite;
+    border-radius: 20px;
+}
+
+.formularioBox input[type="text"],input[type="password"],textarea{
+    width: 100%;
+    height: 40px;
+    margin-bottom:10px;
+    border-radius:10px;
+    border: 2px solid #5ebae9;
+    border-style:dashed;
+}
+.formularioBox{
+    font-weight: bold;
+}
+
+.button{
+    background-color: #ff69b4;
+            color: #333;
+            padding:10px;
+            border-radius: 20px;
+            width: 100%;
+            cursor: pointer;
+            font-size: 20px;
+}
+
+.button:hover{
+    background-color: #ff1493; 
+    color: white;
+    font-weight: 700;
+}
+
+h2{
+    text-align:center;
+    margin-top:30px;
+}
+
+
+/* Sin uso por ahora, quedó de copiarlo de contacto.css
+@media screen and (min-width: 769px) and (max-width: 1279px)  {
+    .contenedorPrincipal{
+        max-width:500px;
+        margin:auto;
+        padding: 20px;
+        background-color: antiquewhite;
+        border-radius: 20px;
+    }
+    .formularioContacto button{
+                font-size: 15px;
+    }
+    #mapa, iframe{
+        height: 30%;
+    }
+}
+
+@media screen and (max-width: 768px)  {
+    .contenedorPrincipal{
+        max-width:60%;
+        margin:auto;
+        padding-left:70px;
+        padding-right:50px;
+        background-color: antiquewhite;
+        border-radius: 20px;
+    }
+    .formularioContacto button{
+                font-size: 15px;
+    }
+    #mapa, iframe{
+        height: 30%;
+    }
+}
+*/

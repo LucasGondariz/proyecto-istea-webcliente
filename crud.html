@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&display=swap" rel="stylesheet"> <!--al final indico que el archivo vinculado es un css, el que indica las reclas-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/login.css"> <!-- Enlazo el CSS -->
+    <title>Document</title>
+</head>
+<body>
+    <div class="contenedorPrincipal">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <div class="formularioBox">
+                <label for="username">Usuario:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="formularioBox">
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            
+            <button type="submit" id="botonIngresar" class="button">Ingresar</button>
+        </form>
+</body>
+<script type="module" src="./scripts/crud.js"></script>
+</html>
