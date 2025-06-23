@@ -150,61 +150,39 @@ export const getFreeShippingProducts = async () => {
 const gridIndex = document.querySelector('.contenedorPrincipal');
 
 
-function createProductCardIndex(product){ 
+function createProductCardIndex(product, index){ 
+    const lugarMaquina = ['maquinaIzquierda', 'maquinaCentral', 'MaquinaDerecha'];
+
     const card = document.createElement('div');
     card.classList.add('contenedorSecundario');
-    card.id.add('maquinaIzquierda');
+    card.id = lugarMaquina[index];
 
     const img = document.createElement('img');
-    img.src.add(product.fields.img);
-    img.alt.add(product.fields.name);
-    
+    img.src = product.fields.img;
+    img.classList.add('maquinaPrincipal');
+    img.alt = product.fields.name;
+
     const div = document.createElement('div');
     div.classList.add('infoProducto');
 
     const title = document.createElement('h2');
     title.textContent = product.fields.name;
 
-    const description = document.createElement('p');
-    description.textContent = product.fields.description;
-
     const price = document.createElement('p');
-    price.textContent = `Precio:$${product.fields.price}`; //probar si funciona
-
-    const form = document.createElement('form');
-    form.classList.add('contenedorMenu');
-    form.action = "";
-
-    const btnAumentar = document.createElement('button');
-    btnAumentar.type = 'button';
-    btnAumentar.id = 'contenedorSecundario1Aumentar'; // PUEDE SER QUE NECESITE COMILLAS O ESTE MAL
-    btnAumentar.textContent = '▲';
-
-    const btnDisminuir = document.createElement('button');
-    btnDisminuir.type = 'button';
-    btnDisminuir.id = 'contenedorSecundario1Disminuir'; // PUEDE SER QUE NECESITE COMILLAS O ESTE MAL
-    btnDisminuir.textContent = '▼';
-
-    const input = document.createElement('input');
-    input.type = 'number';
-    input.value = '0';
-    input.min = '0';
-
-    const btnComprar = document.createElement('button');
-    btnComprar.type = 'button';
-    btnComprar.id = 'comprarCapsula';
-    btnComprar.textContent = 'Comprar';
+    price.textContent = `Precio:$${product.fields.price}`;
 
     card.appendChild(img);
     card.appendChild(div);
     div.appendChild(title);
-    div.appendChild(description);
     div.appendChild(price);
-    div.appendChild(form);
-    form.appendChild(btnAumentar);
-    form.appendChild(btnDisminuir);
-    form.appendChild(input);
-    form.appendChild(btnComprar);
 
     return card;
 } 
+
+export const renderProductsIndex = async () =>{
+    const list = await getTop3Products();
+    list.forEach((product,index) => {
+        const card = createProductCardIndex(product,index);
+        gridIndex.appendChild(card);
+    })
+}

@@ -5,3 +5,4 @@ const API_URL = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}`; // Se us
 
 import * as app from './app.js';
 
+app.renderProductsIndex();
