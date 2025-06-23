@@ -17,6 +17,11 @@ const getProductsTEST = async () => {
 
 getProductsTEST();
 
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+
 const getProducts = async () => {
     const response = await fetch(API_URL, {
         headers: {
@@ -100,3 +105,24 @@ const renderProducts = async () =>{
 }
 
 renderProducts();
+
+//Pruebo ordenar por fecha
+const sortReleaseDate = async () =>{
+    const list = await getProducts();
+    const sortedByReleaseDate = list.sort((a, b) => {
+        return new Date(b.fields.releaseDate) - new Date(a.fields.releaseDate); // convierte las fechas en objeto date y resta, de acuerdo a esta comparacion, va ordenando (Como funciona se saca de: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)
+    });
+    console.log('sortedByReleaseDate', sortedByReleaseDate);
+    return sortedByReleaseDate;
+}
+
+// recorto la lista a los 3 mas nuevos
+const getTop3Products = async () => {
+    const sortedList = await sortReleaseDate();
+    console.log('sortedList.slice(0, 3)', sortedList.slice(0, 3));
+    return sortedList.slice(0, 3); // Devuelvo los primeros 3 elementos del array
+}
+
+getTop3Products();
+
+
