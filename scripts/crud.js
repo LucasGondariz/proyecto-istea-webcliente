@@ -42,7 +42,29 @@ const addToAirtable = async (product) => {
     console.log(responseData);
 }
 
-const cajaSelectorProducto = document.querySelector('#cajaSelectorProducto');
+const updateAirtable = async (product) => {
+    const productId = cajaSelectorProducto.value;
+    const itemAirtable = {
+        records:[{
+        id: productId,
+        fields: product
+        }]
+    };
+    console.log('itemAirtable?', itemAirtable);
+    console.log("Intento de envio", JSON.stringify(itemAirtable, null, 2));
+    const respuesta = await fetch(API_URL, {
+        method: 'PATCH', // Cambiamos a PATCH para actualizar
+        headers: {
+            'Authorization': `Bearer ${API_TOKEN}`,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(itemAirtable)
+    })
+    const responseData = await respuesta.json();
+    console.log(responseData);
+}
+
+const cajaSelectorProducto = document.getElementById('cajaSelectorProducto');
 
 //Funcion para actualizar el selector de productos
 const updateSelector = async () => {
@@ -56,12 +78,13 @@ const updateSelector = async () => {
         //console.log('EstadoDeOption', option);
         cajaSelectorProducto.appendChild(option);
     })
+    await updateDatosFormulario();
 }
 
 //Funcion para escuchar el selector de productos
 const cajaSelectorAccion = document.getElementById('cajaSelectorAccion');
 const selectorProducto = document.getElementById('selectorProducto');
-selectorProducto.style.display = 'none';
+selectorProducto.style.display = 'none'; // Oculto POR DEFECTO a la opcion de elegir producto.
 cajaSelectorAccion.addEventListener('change', (event) => {
     const opcionSeleccionada = event.target.value;
     console.log('Opción seleccionada:', opcionSeleccionada);
@@ -78,6 +101,25 @@ cajaSelectorAccion.addEventListener('change', (event) => {
     }
 });
 
+const updateDatosFormulario = async () => {
+    const productoId = cajaSelectorProducto.value; //aca tengo  el id UNICO del producto
+    const listaDeProductos = await app.getProducts();
+    const productoEncontrado = listaDeProductos.find(producto => producto.id === productoId);
+    console.log('Producto encontrado:', productoEncontrado);
+    document.getElementById('name').value = productoEncontrado.fields.name;
+    document.getElementById('collection').value = productoEncontrado.fields.collection;
+    document.getElementById('description').value = productoEncontrado.fields.description;
+    document.getElementById('stock').value = productoEncontrado.fields.stock;
+    document.getElementById('price').value = productoEncontrado.fields.price;
+    document.getElementById('releaseDate').value = productoEncontrado.fields.releaseDate;
+    document.getElementById('img').value = productoEncontrado.fields.img;
+    document.getElementById('freeShipping').checked = productoEncontrado.fields.freeShipping === 'true'; // Verifico si es true o false
+}
+
+
+cajaSelectorProducto.addEventListener('change', (event) => {
+    updateDatosFormulario();
+});
 
 const botonRealizarAccion = document.getElementById('submit-button');
 botonRealizarAccion.addEventListener('click', (event) => {
@@ -89,7 +131,7 @@ botonRealizarAccion.addEventListener('click', (event) => {
             addToAirtable(addProduct());
             break;
         case 'update':
-            updateAirtable();
+            updateAirtable(addProduct());
             break;
         case 'delete':
             deleteAirtable();
