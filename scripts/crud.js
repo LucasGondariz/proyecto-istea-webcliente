@@ -9,14 +9,15 @@ import * as app from './app.js';
 const products =[];
 function addProduct(){
     const newProduct = {
-        name: 'Nuevo Producto',
-        collection: 'Nueva Colección',
-        description: 'Descripción del nuevo producto',
-        stock: 100,
-        price: 29.99,
-        releaseDate: '2023-10-01',
-        img: 'https://example.com/nuevo-producto.jpg',
-        freeShipping: "TRUE"}
+        name: document.getElementById('name').value,
+        collection: document.getElementById('collection').value,
+        description: document.getElementById('description').value,
+        stock: parseInt(document.getElementById('stock').value),
+        price: parseInt(document.getElementById('price').value),
+        releaseDate: document.getElementById('releaseDate').value,
+        img: document.getElementById('img').value,
+        freeShipping: String(document.getElementById('freeShipping').checked)
+    };
     return newProduct;
 };
 
@@ -36,7 +37,7 @@ const addToAirtable = async (product) => {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(itemAirtable)
-    })//.then(data => console.log(data));
+    })
     const responseData = await respuesta.json();
     console.log(responseData);
 }
