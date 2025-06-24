@@ -21,7 +21,7 @@ body{
 .botonEliminar:hover{
     background-color: #ff1493;
 }
-#comprarTotal:hover{
+#comprarTotal:hover, .contenedorMenuCompra div:hover{
     /*background-position: right center;*/
     transform: translateY(-3px);
     box-shadow: 0 8px 20px #f593c4f6;
@@ -40,6 +40,19 @@ body{
     letter-spacing: 0.5px;
     color:aliceblue;
 }
+
+.contenedorMenuCompra div{
+    padding: 15px 30px;
+    cursor: pointer;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #ff69b4, #fa86f4, #26a8e0);
+    background-size: 200% auto;
+    font-size: 14px;
+    font-weight: 700; /* Letra en negrita */
+    letter-spacing: 0.5px;
+    color:aliceblue;
+}
+
 
 
 body h1{
