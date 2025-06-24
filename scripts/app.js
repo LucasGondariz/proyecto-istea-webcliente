@@ -17,12 +17,16 @@ const getProductsTEST = async () => {
     console.log('data', data);
 }
 
+//Funciones automaticas al inicio
 getProductsTEST();
+actualizarNumeroCarrito()
 
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
+
+
 
 export const getProducts = async () => {
     const response = await fetch(API_URL, {
@@ -34,6 +38,32 @@ export const getProducts = async () => {
     const data = await response.json(); // El método json() convierte la respuesta en un objeto JS
     return data.records;
 } 
+
+function actualizarNumeroCarrito(){
+    console.log(JSON.parse(localStorage.getItem('carrito')).length);
+    let contadorAux = 0;
+    JSON.parse(localStorage.getItem('carrito')).forEach((item) => {
+        contadorAux = contadorAux + item.cantidad; // Recorro y sumo la cantidad de productos
+    });
+    document.querySelector('.carritoTexto').innerHTML = contadorAux;;
+}
+
+// Agregar al carrito
+function agregarCarrito(id, unidades) {
+        console.log(`Producto ID: ${id}, Cantidad: ${unidades}`);
+        let carrito = JSON.parse(localStorage.getItem('carrito')) || []; // Me aseguro que carrito sea un array, si no hay nada en localStorage, inicializo como array vacio
+        console.log('Carrito inicio:', carrito);
+        const productoExistente = carrito.find(item => item.id === id); // Busco si hay otro producto igual
+        if (productoExistente) {
+            productoExistente.cantidad = parseInt(unidades) + parseInt(productoExistente.cantidad); // PUede ser NO necesario el parseInt
+        } else {
+            carrito.push({ id: id, cantidad: parseInt(unidades) });
+        }
+        console.log('Carrito actualizado:', carrito);
+        localStorage.setItem('carrito', JSON.stringify(carrito));
+        console.log('Carrito guardado en localStorage:', JSON.parse(localStorage.getItem('carrito')));
+        actualizarNumeroCarrito();
+}
 
 
 // Debo crear las tarjetas e insertarlas en el DOM
@@ -68,11 +98,20 @@ function createProductCard(product){
     btnAumentar.type = 'button';
     btnAumentar.id = 'contenedorSecundario1Aumentar'; // PUEDE SER QUE NECESITE COMILLAS O ESTE MAL
     btnAumentar.textContent = '▲';
+    btnAumentar.addEventListener('click', () => {
+            input.value = parseInt(input.value) + 1;
+    });
 
     const btnDisminuir = document.createElement('button');
     btnDisminuir.type = 'button';
     btnDisminuir.id = 'contenedorSecundario1Disminuir'; // PUEDE SER QUE NECESITE COMILLAS O ESTE MAL
     btnDisminuir.textContent = '▼';
+    btnDisminuir.addEventListener('click', () => {
+        if (input.value > 0) {
+            input.value = parseInt(input.value) - 1;
+        }
+    });
+
 
     const input = document.createElement('input');
     input.type = 'number';
@@ -81,8 +120,17 @@ function createProductCard(product){
 
     const btnComprar = document.createElement('button');
     btnComprar.type = 'button';
-    btnComprar.id = 'comprarCapsula';
+    btnComprar.id = product.id; // Le paso el ID unico del producto.
     btnComprar.textContent = 'Comprar';
+
+    btnComprar.addEventListener('click', () => {
+        if (input.value <= 0) {
+            console.log('Debe ingresar una cantidad mayor a 0');
+            return;
+        }
+        agregarCarrito(product.id, input.value);
+    });
+
 
     card.appendChild(img);
     card.appendChild(div);

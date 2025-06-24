@@ -1,0 +1,109 @@
+@import url(menu.css);
+
+body{
+    display:flex;
+    flex-direction: column;
+}
+
+
+.catalogo{
+    padding-left: 200px; /*Para que no pise el menu*/
+    padding-right:200px;
+    padding-top: 50px;
+    display:grid;
+    grid-template-columns: repeat(auto-fill, 450px); /* Para las fracciones, se puede pensar como cuantos de 200px minimo entran en el tamaño de pantalla */
+    gap: 10px;
+    margin: auto;
+    max-width: 80vw;
+    /*max-width: 1400px; /*lo limito para MAXIMO 3 productos*/
+}
+
+.producto{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff; /*Auxiliar para ver los contenedores*/
+    border-radius: 15px;
+}
+.infoProducto{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+}
+
+#barraInferiorBotones{
+    Height:100%;
+}
+.contenedorMenu{
+    display:flex;
+    flex-direction: row;
+    justify-content:space-around;
+    align-items:center;
+    height: 100%;
+    padding-left:15%;
+    padding-right:15%;
+}
+
+input[type="number"]{
+    width:20%;
+}
+
+.producto img{
+    width: 196px;
+}
+
+button[type="button"],input[type="number"]{
+    border-radius: 5px;
+    cursor: pointer;
+    border: 0px;
+    background-color:#5ebae9;
+}
+
+@media screen and (min-width: 769px) and (max-width: 1279px)  {
+    .contenedorMenu{
+        padding-left: 5%;
+        padding-right: 5%
+    }
+    .producto img{
+        width: 160px;
+    }
+}
+
+@media screen and (max-width: 768px)  {
+    .contenedorMenu{
+        align-items:center;
+        align-content: center;
+        justify-content:space-between;
+        height: 100%;
+        padding-left:1%;
+        padding-right:1%;
+        
+    }
+    .contenedorMenu div{
+        display:flex;
+        flex-direction: column;
+    }
+
+    .producto img{
+        width: 15em;
+        height: 15em;
+    }
+    .catalogo{
+        padding-left: 110px; /*Para que no pise el menu*/
+        padding-right:10px;
+        padding-top: 100px;
+        display:flex;
+        flex-direction: column;
+        gap: 10px;
+        margin: auto;
+    }
+    #barraInferior{
+        height: 80px;
+    }
+    footer{
+        height: 140px; /* Tengo que modificar para hacerlo mas visible */
+    }
+
+}
