@@ -47,7 +47,7 @@ const updateAirtable = async (product) => {
     const itemAirtable = {
         records:[{
         id: productId,
-        fields: product
+        fields: product // Product se lo envio de fuera
         }]
     };
     console.log('itemAirtable?', itemAirtable);
@@ -63,6 +63,21 @@ const updateAirtable = async (product) => {
     const responseData = await respuesta.json();
     console.log(responseData);
 }
+
+const deleteAirtable = async (product) => {
+    const productId = cajaSelectorProducto.value;
+    const respuesta = await fetch(`${API_URL}/${productId}`, { // Solo se le agrega el id para borrar a la URL
+        method: 'DELETE', // Cambiamos a DELETE para eliminar
+        headers: {
+            'Authorization': `Bearer ${API_TOKEN}`,
+            'Content-Type': 'application/json'
+        },
+    })
+    const responseData = await respuesta.json();
+    console.log(responseData);
+}
+
+
 
 const cajaSelectorProducto = document.getElementById('cajaSelectorProducto');
 
@@ -134,55 +149,7 @@ botonRealizarAccion.addEventListener('click', (event) => {
             updateAirtable(addProduct());
             break;
         case 'delete':
-            deleteAirtable();
+            deleteAirtable(addProduct());
             break;
     }
 });
-
-
-/*
-async function crearProducto(name, collection, description, stock, price, releaseDate, img, freeShipping) {
-    const nuevoProducto = {
-        fields: {
-            name,
-            collection,
-            description,
-            stock,
-            price,
-            releaseDate,
-            img,
-            freeShipping
-        }
-};
-*/
-
-/*
-async function crearProducto(name,collection,description,stock,price,releaseDate,img,freeShipping){
-    const response = await fetch(API_URL, {
-        method: 'POST',
-        headers: {
-            'Authorization': `Bearer ${API_TOKEN}`,
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ // Convierto el objeto a JSON, que es lo que la API entiende
-            fields: {
-                name,
-                collection,
-                description,
-                stock,
-                price,
-                releaseDate,
-                img,
-                freeShipping
-            }
-        })
-    });
-
-    if (!response.ok) {
-        throw new Error('Error al crear el producto');
-    }
-
-    const data = await response.json();
-    return data;
-}
-    */
