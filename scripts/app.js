@@ -26,6 +26,17 @@ actualizarNumeroCarrito();
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
+export const getStock = async (id) => {
+    const response = await fetch(`${API_URL}/${id}`, {
+        headers: {
+            'Authorization': `Bearer ${API_TOKEN}`,
+            'Content-Type': 'application/json'
+        }
+    });
+    const data = await response.json(); // El método json() convierte la respuesta en un objeto JS
+    console.log('getStock data', data.fields.stock);
+    return data.fields.stock; // Devuelve el stock del producto
+}
 
 
 export const getProducts = async () => {
@@ -39,13 +50,16 @@ export const getProducts = async () => {
     return data.records;
 } 
 
-export function actualizarNumeroCarrito(){
+export function actualizarNumeroCarrito(){ // Esta funcion esta siendo invocada en todos los html, ver que pasa
     console.log(JSON.parse(localStorage.getItem('carrito')).length);
     let contadorAux = 0;
     JSON.parse(localStorage.getItem('carrito')).forEach((item) => {
         contadorAux = contadorAux + item.cantidad; // Recorro y sumo la cantidad de productos
     });
-    document.querySelector('.carritoTexto').innerHTML = contadorAux;;
+    const elementoContador = document.querySelector('.carritoTexto');
+    if (elementoContador) {
+    elementoContador.innerHTML = contadorAux;
+    }
 }
 
 // Agregar al carrito

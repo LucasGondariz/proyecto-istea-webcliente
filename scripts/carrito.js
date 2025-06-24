@@ -90,3 +90,38 @@ function createProductCard(product){
 }
 
 renderizarCarrito();
+
+const botonComprarTotal = document.getElementById('comprarTotal');
+botonComprarTotal.addEventListener('click', () => {
+    if (listaCarrito.length === 0) {
+        alert('El carrito está vacío. Agrega productos antes de comprar.');
+        return;
+    }
+    procesarCompra(listaCarrito);
+});
+const procesarCompra = async (listaCarrito) => {
+    for (const item of listaCarrito) { // Uso for of y no forEach porque necesito usar await dentro del bucle
+        const stockActual = await app.getStock(item.id);
+        const response = await fetch(`${API_URL}/${item.id}`, {
+            method: 'PATCH',
+            headers: {
+                'Authorization': `Bearer ${API_TOKEN}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                fields: {
+                    stock:stockActual - item.cantidad // Llamo a la funcion getStock para obtener el stock actual y le resto la cantidad del carrito
+                }
+            })
+        });
+    };
+    listaCarrito = [];
+    localStorage.setItem('carrito', JSON.stringify(listaCarrito));
+    app.actualizarNumeroCarrito();
+    grid.innerHTML = '';
+    console.log(listaCarrito);
+    console.log(localStorage.getItem('carrito'));
+    //renderizarCarrito(); Ver despues, renderiza como si hubiera productos en el carrito
+    document.getElementById('total').textContent = '0'; // Reseteo el total a 0
+    alert('Compra realizada con éxito.');
+}

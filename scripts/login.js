@@ -3,7 +3,6 @@ const BASE_ID = 'appSPKO7TLX1jBPct';
 const TABLE_NAME = 'products';
 const API_URL = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}`; // Se usa $ y no concat para que sea más legible - Tambien los backticks `` son como las comillas pero permiten interpolación de variables
 
-import * as app from './app.js';
 
 const botonIngresar = document.getElementById('botonIngresar');
 botonIngresar.addEventListener('click', (event) => {
