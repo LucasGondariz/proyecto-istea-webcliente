@@ -4,6 +4,23 @@ body{
     flex-direction:column;
 }
 
+.menuAdmin, .menuAdmin li, .menuAdmin a {
+    height: 30px;
+    width: 80px;
+    padding: 0;
+    margin: 0;
+    right: 15%;
+    z-index: 5;
+    position: fixed;
+    list-style: none;
+    transition-duration: 1s;
+}
+
+.login-link:hover {
+    background-color: #ff69b4;
+    border-color: #ccc;
+}
+
 .contenedorPrincipal{ 
     display:grid;
     grid-template-columns: 15% 15% 40% 15% 15%;
@@ -125,5 +142,8 @@ body{
     .infoProducto h2,.infoProducto p{
         font-size: 1.4em;
     }
+    .menuAdmin , .menuAdmin li, .menuAdmin a {
+    right: 30%;
+}
 
 }
