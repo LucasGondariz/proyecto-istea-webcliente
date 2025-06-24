@@ -6,8 +6,7 @@ import * as app from './app.js';
 
 const grid = document.querySelector('.catalogo'); // Elemento padre con todos los productos
 let listaCarrito = JSON.parse(localStorage.getItem('carrito')) || []; 
-
-
+let totalValorCarrito=0;
 
 const renderizarCarrito = async () => {
     const response = await fetch(API_URL, {
@@ -22,9 +21,11 @@ const renderizarCarrito = async () => {
         const productoEncontradoCarrito = listaCarrito.find(item => item.id === producto.id);
         if (productoEncontradoCarrito) {
             console.log('Producto encontrado en el carrito:', producto);
+            totalValorCarrito = totalValorCarrito + (producto.fields.price * (listaCarrito.find(item => item.id === producto.id).cantidad));
             grid.appendChild(createProductCard(producto));
         }
     })
+    document.getElementById('total').textContent = totalValorCarrito;
 }
 
 // forma clasica de crear la funcion, otra forma, forma de funcion lambda (product) => {}
