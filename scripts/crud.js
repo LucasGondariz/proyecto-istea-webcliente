@@ -96,6 +96,18 @@ const updateSelector = async () => {
     await updateDatosFormulario();
 }
 
+function limpiarFormulario() {
+    cajaSelectorProducto.innerHTML = "";
+    document.getElementById('name').value = '';
+    document.getElementById('collection').value = '';
+    document.getElementById('description').value = ''; 
+    document.getElementById('stock').value = '';
+    document.getElementById('price').value = '';
+    document.getElementById('releaseDate').value = '';
+    document.getElementById('img').value = '';
+    document.getElementById('freeShipping').checked = false;
+}
+
 //Funcion para escuchar el selector de productos
 const cajaSelectorAccion = document.getElementById('cajaSelectorAccion');
 const selectorProducto = document.getElementById('selectorProducto');
@@ -105,7 +117,7 @@ cajaSelectorAccion.addEventListener('change', (event) => {
     console.log('Opción seleccionada:', opcionSeleccionada);
     switch (opcionSeleccionada) {
         case 'create':
-            cajaSelectorProducto.innerHTML = "";
+            limpiarFormulario();
             selectorProducto.style.display = 'none';
             break;
         case 'update':
