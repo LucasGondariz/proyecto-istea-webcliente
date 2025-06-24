@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&display=swap" rel="stylesheet"> <!--al final indico que el archivo vinculado es un css, el que indica las reclas-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/catalogo.css"> <!-- Enlazo el CSS -->
+    <link rel="stylesheet" href="./css/carrito.css"> <!-- Enlazo el CSS -->
     <title>Document</title>
 </head>
 <body>
@@ -33,9 +33,18 @@
             </li>
         </ul>
     </nav>
-
+    <div class ="efectuarCompra">
+        <form class="contenedorMenu" action="">
+            <div>
+                <label for="unidadesCapsulas">Unidades a comprar:</label>
+                <input type="number" id="unidadesCapsulas" value="0" min="0">
+            </div>
+            <button type="button" id="comprarCapsula">Comprar</button>
+        </form>
+    </div>
+    <h1>Productos del carrito</h1>
     <div class="catalogo">
-        <!-- Contenedor de productos -->
+        <!-- Que deben ir cargandose -->
     </div>
     <div id="barraInferior">
         <div id="barraInferiorBotones">

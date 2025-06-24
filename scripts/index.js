@@ -25,3 +25,10 @@ botonIzquierda.addEventListener('click', () => {
     contenedorPrincipal.innerHTML = "";
     app.moverIzquierda();
 });
+
+// Agrego event listener al boton con id comprarCapsula
+const botonComprarCapsulaIndex = document.getElementById('comprarCapsula');
+botonComprarCapsulaIndex.addEventListener('click', () => {
+    const unidades = document.getElementById('unidadesCapsulasIndex').value;
+    app.agregarCarrito(app.top3Products[1].id,unidades)
+});

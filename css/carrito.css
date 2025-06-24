@@ -5,7 +5,26 @@ body{
     flex-direction: column;
 }
 
-
+.valorImportante{
+    font-weight: bold;
+    text-shadow:  #f593c4f6 1px 1px 2px;
+}
+.botonEliminar{
+    background-color: #ff69b4;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 2px;
+    padding: 5px 10px;
+    transition-duration: 0.5s;
+}
+.botonEliminar:hover{
+    background-color: #ff1493;
+}
+body h1{
+    text-align: center;
+    color: #333;
+}
 .catalogo{
     padding-left: 200px; /*Para que no pise el menu*/
     padding-right:200px;

@@ -3,7 +3,7 @@ const BASE_ID = 'appSPKO7TLX1jBPct';
 const TABLE_NAME = 'products';
 const API_URL = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}`; // Se usa $ y no concat para que sea más legible - Tambien los backticks `` son como las comillas pero permiten interpolación de variables
 
-let top3Products = []; // Uso let para poder reasignar luego, POR ESO NO ES CONST
+export let top3Products = []; // Uso let para poder reasignar luego, POR ESO NO ES CONST
 
 // Funcion TEST que trae la tabla por consola
 const getProductsTEST = async () => {
@@ -19,7 +19,7 @@ const getProductsTEST = async () => {
 
 //Funciones automaticas al inicio
 getProductsTEST();
-actualizarNumeroCarrito()
+actualizarNumeroCarrito();
 
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
@@ -39,7 +39,7 @@ export const getProducts = async () => {
     return data.records;
 } 
 
-function actualizarNumeroCarrito(){
+export function actualizarNumeroCarrito(){
     console.log(JSON.parse(localStorage.getItem('carrito')).length);
     let contadorAux = 0;
     JSON.parse(localStorage.getItem('carrito')).forEach((item) => {
@@ -49,7 +49,7 @@ function actualizarNumeroCarrito(){
 }
 
 // Agregar al carrito
-function agregarCarrito(id, unidades) {
+export function agregarCarrito(id, unidades) {
         console.log(`Producto ID: ${id}, Cantidad: ${unidades}`);
         let carrito = JSON.parse(localStorage.getItem('carrito')) || []; // Me aseguro que carrito sea un array, si no hay nada en localStorage, inicializo como array vacio
         console.log('Carrito inicio:', carrito);
@@ -194,7 +194,7 @@ const gridIndex = document.querySelector('.contenedorPrincipal');
 
 function createProductCardIndex(product, index){ 
     const lugarMaquina = ['maquinaIzquierda', 'maquinaCentral', 'MaquinaDerecha'];
-
+    
     const card = document.createElement('div');
     card.classList.add('contenedorSecundario');
     card.id = lugarMaquina[index];
@@ -255,3 +255,4 @@ export function moverDerecha() {
     renderProductsIndex();
     console.log('boton der --> renderizado');
 }
+
