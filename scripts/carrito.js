@@ -47,6 +47,7 @@ function createProductCard(product){
         listaCarrito = listaCarrito.filter(item => item.id !== productoId); // Filter crea un array que cumplen TAL condicion, como aca que sea diferente al prod que quiero eliminar
         localStorage.setItem('carrito', JSON.stringify(listaCarrito)); // Actualizo el carrito en localStorage
         grid.innerHTML = ''; // Limpio el grid
+        totalValorCarrito = 0; // LINEA AGREGADA A LO ULTIMO <----
         renderizarCarrito(); // Vuelvo a renderizar el carrito
         app.actualizarNumeroCarrito(); // Actualizo el contador del carrito
         console.log('Carrito actualizado:', listaCarrito);
