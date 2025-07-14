@@ -47,7 +47,7 @@ function createProductCard(product){
         listaCarrito = listaCarrito.filter(item => item.id !== productoId); // Filter crea un array que cumplen TAL condicion, como aca que sea diferente al prod que quiero eliminar
         localStorage.setItem('carrito', JSON.stringify(listaCarrito)); // Actualizo el carrito en localStorage
         grid.innerHTML = ''; // Limpio el grid
-        totalValorCarrito = 0; // LINEA AGREGADA A LO ULTIMO <----
+        totalValorCarrito = 0; // LINEA AGREGADA A ULTIMO MOMENTO <----
         renderizarCarrito(); // Vuelvo a renderizar el carrito
         app.actualizarNumeroCarrito(); // Actualizo el contador del carrito
         console.log('Carrito actualizado:', listaCarrito);
@@ -104,7 +104,7 @@ const procesarCompra = async (listaCarrito) => {
     for (const item of listaCarrito) { // Uso for of y no forEach porque necesito usar await dentro del bucle
         const stockActual = await app.getStock(item.id);
         const response = await fetch(`${API_URL}/${item.id}`, {
-            method: 'PATCH',
+            method: 'PATCH', // metodo patch es similar al put pero mas PUNTUAL, solo actualiza los campos que le paso
             headers: {
                 'Authorization': `Bearer ${API_TOKEN}`,
                 'Content-Type': 'application/json'

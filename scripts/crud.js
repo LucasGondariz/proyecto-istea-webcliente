@@ -64,9 +64,9 @@ const updateAirtable = async (product) => {
     console.log(responseData);
 }
 
-const deleteAirtable = async (product) => {
+const deleteAirtable = async (product) => { // en realidad no necesito el product, PERO NO LO TOCO.
     const productId = cajaSelectorProducto.value;
-    const respuesta = await fetch(`${API_URL}/${productId}`, { // Solo se le agrega el id para borrar a la URL
+    const respuesta = await fetch(`${API_URL}/${productId}`, { // Solo se le agrega el id a la URL para borrar
         method: 'DELETE', // Cambiamos a DELETE para eliminar
         headers: {
             'Authorization': `Bearer ${API_TOKEN}`,
@@ -161,7 +161,7 @@ botonRealizarAccion.addEventListener('click', (event) => {
             updateAirtable(addProduct());
             break;
         case 'delete':
-            deleteAirtable(addProduct());
+            deleteAirtable(addProduct()); // en realidad no necesito el product, solo el id a borrar, PERO NO LO TOCO.
             break;
     }
 });

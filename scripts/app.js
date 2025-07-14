@@ -13,7 +13,7 @@ const getProductsTEST = async () => {
             'Content-Type': 'application/json'
         }
     });
-    const data = await response.json(); // El método json() convierte la respuesta en un objeto JS
+    const data = await response.json(); // El método json() convierte la respuesta en un objeto JS (hay un parse dentro)
     console.log('data', data);
 }
 
@@ -28,6 +28,7 @@ actualizarNumeroCarrito();
 
 export const getStock = async (id) => {
     const response = await fetch(`${API_URL}/${id}`, {
+        // puedo ignorar aclarar el metodo, ya que el por defecto es GET (asi lo interpretan los navegadores)
         headers: {
             'Authorization': `Bearer ${API_TOKEN}`,
             'Content-Type': 'application/json'
@@ -57,7 +58,7 @@ export function actualizarNumeroCarrito(){ // Esta funcion esta siendo invocada 
         contadorAux = contadorAux + item.cantidad; // Recorro y sumo la cantidad de productos
     });
     const elementoContador = document.querySelector('.carritoTexto');
-    if (elementoContador) {
+    if (elementoContador) { // Solo lo hace SI EXISTE, lo hago para que no me de error
     elementoContador.innerHTML = contadorAux;
     }
 }
@@ -71,10 +72,10 @@ export function agregarCarrito(id, unidades) {
         if (productoExistente) {
             productoExistente.cantidad = parseInt(unidades) + parseInt(productoExistente.cantidad); // PUede ser NO necesario el parseInt
         } else {
-            carrito.push({ id: id, cantidad: parseInt(unidades) });
+            carrito.push({ id: id, cantidad: parseInt(unidades) }); // Agrego el producto al ARRAY que cree para luego guardarlo en localStorage
         }
         console.log('Carrito actualizado:', carrito);
-        localStorage.setItem('carrito', JSON.stringify(carrito));
+        localStorage.setItem('carrito', JSON.stringify(carrito)); // lo convierto en string y lo guardo en ese item del localstorage
         console.log('Carrito guardado en localStorage:', JSON.parse(localStorage.getItem('carrito')));
         actualizarNumeroCarrito();
 }
@@ -197,7 +198,7 @@ export const getFreeShippingProducts = async () => {
     const list = await getProducts();
     const freeShippingProducts = list.filter(product => product.fields.freeShipping == "TRUE"); // Filtra los productos que tienen freeShipping como true
     console.log('Funcion getFreeShippingProducts', freeShippingProducts);
-    return freeShippingProducts;
+    return freeShippingProducts; // devuelve lista filtrada
 }
 
 //getFreeShippingProducts();
