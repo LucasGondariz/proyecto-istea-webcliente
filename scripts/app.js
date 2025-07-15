@@ -168,6 +168,15 @@ export const renderProductsCatalogo = async () =>{
         grid.appendChild(card);
     })
 }
+// LO MISMO QUE LA ANTERIOR, pero recibe una lista de productos.
+export const renderizarProductosGenerico = async (list) =>{
+    console.log('Lista recibida por renderizarProductosGenerico:', list);
+    list.forEach(product => {
+        const card = createProductCard(product);
+        grid.appendChild(card);
+    })
+}
+
 
 //renderProducts();
 

@@ -6,4 +6,19 @@ const API_URL = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}`; // Se us
 import * as app from './app.js';
 
 app.renderProductsCatalogo();
+const grid = document.querySelector('.catalogo');
+// Filtro la lista de productos por envio gratis
+const filtroEnvioGratis = document.getElementById('enDescuento');
+filtroEnvioGratis.addEventListener('change', async () => {
+    const productos = await app.getProducts();
+    if(filtroEnvioGratis.checked) {
+        console.log('Check?', filtroEnvioGratis.checked );
+        grid.innerHTML = '';
+        app.renderizarProductosGenerico(productos.filter(producto => producto.fields.freeShipping === 'true'));
+    }else{
+        console.log('Check?', filtroEnvioGratis.checked );
+        grid.innerHTML = '';
+        app.renderizarProductosGenerico(productos);
+    }
+});
 
