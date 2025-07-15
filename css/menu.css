@@ -123,6 +123,7 @@ li a:hover .iconos{
 footer{
     height: 90px; /* Tengo que modificar para hacerlo mas visible */
     width: 100%;
+    margin-top:auto; /* El secreto para mantener el footer abajo*/
     bottom:0;
     z-index:1;
 }

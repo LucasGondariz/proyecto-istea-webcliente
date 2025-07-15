@@ -1,8 +1,11 @@
 @import url(menu.css);
-
+header{
+    width:100%;
+}
 body{
     display:flex;
     flex-direction: column;
+    align-items:center;
 }
 
 .valorImportante{
@@ -30,10 +33,10 @@ body{
 }
 
 .divSeparador{
-    height:90%;
+    padding:5px;
     display:flex;
     flex-direction:column;
-    align-items:flex-end;
+    align-self: flex-start;
 }
 
 #comprarTotal{
@@ -49,6 +52,9 @@ body{
 }
 
 .contenedorMenuCompra div{
+    display: flex;
+    flex-direction: row;
+    height:20px;
     padding: 15px 30px;
     cursor: pointer;
     border-radius: 12px;
@@ -70,8 +76,6 @@ body h1{
 
 .efectuarCompra{
     display: flex;
-    flex-direction: column;
-    align-items: space-between;
     justify-content:center;
     padding-top: 50px;
 }
@@ -91,7 +95,7 @@ body h1{
 .producto{
     display:flex;
     flex-direction: row;
-    justify-content:space-around;
+    justify-content:space-between;
     align-items: center;
     background-color: #fff; /*Auxiliar para ver los contenedores*/
     border-radius: 15px;
@@ -127,6 +131,7 @@ input[type="number"]{
 }
 
 button[type="button"],input[type="number"]{
+    height:50px; /*AUXILIAR*/
     border-radius: 5px;
     cursor: pointer;
     border: 0px;
@@ -140,19 +145,26 @@ button[type="button"],input[type="number"]{
 }
 
 @media screen and (max-width: 768px)  {
-
+    .producto{
+        width: 100%;
+        height: auto;
+    }
     .producto img{
         width: 160px;
         height: 240px;
     }
-    .catalogo{
-        padding-left: 5px; /*Para que no pise el menu*/
-        padding-right:5px;
-        padding-top: 0;
-        display:flex;
+    .efectuarCompra{
+    padding-top: 130px;
+    }
+    .catalogo {
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 10px; /* Ajusta si es necesario */
+        display: flex;
         flex-direction: column;
-        gap: 0px;
-        margin: auto;
+        gap: 10px;
+        max-width: 90vw;
+        margin: 0;
     }
     
     
