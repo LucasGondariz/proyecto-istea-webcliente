@@ -27,7 +27,7 @@ filtroEnvioGratis.addEventListener('change', async () => {
     }
 });
 
-// Funcion para filtrar un array por coleccion u ordenar por precio
+// Funcion para filtrar un array por coleccion
 const opcionColeccionEl = document.getElementById('opcionColeccion');
 opcionColeccionEl.addEventListener('change', async () => {
     const productos = await app.getProducts();
