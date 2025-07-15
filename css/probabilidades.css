@@ -55,7 +55,7 @@ tr:hover{
 
 @media screen and (max-width: 768px)  {
     .contenedorPrincipal{
-        padding-left:80px;
+        padding-left:10px;
         padding-right:0px;
     }
 }

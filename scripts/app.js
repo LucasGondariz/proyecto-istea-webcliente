@@ -177,7 +177,6 @@ export const renderizarProductosGenerico = async (list) =>{
     })
 }
 
-
 //renderProducts();
 
 //Pruebo ordenar por fecha
@@ -280,3 +279,17 @@ export function moverDerecha() {
     console.log('boton der --> renderizado');
 }
 
+const menu = document.querySelector('.menuPrincipal');
+const boton = document.getElementById('btnToggleMenu');
+
+if(boton){
+boton.addEventListener('click', () => {
+    menu.classList.toggle('visible');
+    boton.classList.toggle('movido');
+    if (boton.textContent === '☰') {
+        boton.textContent = '✕';
+    } else {
+        boton.textContent = '☰';
+    }
+});
+}

@@ -59,6 +59,7 @@ const llenarSelectColeccion = async () => {
 // Inicializo colecciones al cargar la pagina
 llenarSelectColeccion();
 
+
 // Funcion para ordenar dependiendo de la opcion seleccionada
 const opcionOrdenarEl = document.getElementById('opcionOrdenar');
 opcionOrdenarEl.addEventListener('change', async () => {

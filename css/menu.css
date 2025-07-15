@@ -72,6 +72,7 @@ body{
     left: 0;
     top:50%; /* esto lo complemento con transform */
     transform:translate(0%, -50%); /* Muevo un 50% del tamaño de ul hacia arriba, para que quede BIEN centrado */
+    transition: left 0.3s ease-in-out; /* para que se vea el efecto al abrirlo */
 }
 
 .menuCarrito{
@@ -177,7 +178,36 @@ footer{
 @media screen and (max-width: 768px)  {
     .menuPrincipal{
         width: 100px;
+        left:-110px;
     }
+
+    .menuPrincipal.visible{
+        left:0px;
+    }
+
+    .btn-toggle {
+    position: fixed; /* Fijo en la pantalla */
+    left: -20px;      /* Un poco separado del borde */
+    top: 50%;
+    transform: translateY(-50%); /* Centrado verticalmente */
+    z-index: 4; /* Por encima del menú para que siempre se pueda clickear */
+    background-color: #ff69b4;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 2px 2px 4px #000;
+    transition: top 0.5s ease-in-out, left 0.5s ease-in-out, transform 0.5s ease-in-out;
+    }
+    .btn-toggle.movido{
+        top:65%;
+        left: 15px;
+        transition: top 0.5s ease-in-out, left 0.5s ease-in-out, transform 0.5s ease-in-out;
+    }
+
     li a,label{
         font-size: 16px;
     }

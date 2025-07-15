@@ -48,6 +48,7 @@ body{
 
 input[type="number"]{
     width:20%;
+    min-width: 20px;
 }
 
 .producto img{
@@ -87,13 +88,13 @@ button[type="button"],input[type="number"]{
     }
 
     .producto img{
-        width: 15em;
-        height: 15em;
+        width: 160px;
+        height: 240px;
     }
     .catalogo{
-        padding-left: 110px; /*Para que no pise el menu*/
+        padding-left: 10px;
         padding-right:10px;
-        padding-top: 100px;
+        padding-top: 120px;
         display:flex;
         flex-direction: column;
         gap: 10px;

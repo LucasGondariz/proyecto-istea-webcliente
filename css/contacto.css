@@ -6,6 +6,10 @@ body{
     flex-direction:column;
 }
 
+.menuCarrito{
+        display: none;
+}
+
 .contenedorPrincipal{
     max-width:900px;
     margin:auto;
