@@ -56,6 +56,9 @@ function createProductCard(product){
     const div = document.createElement('div');
     div.classList.add('infoProducto');
 
+    const divSeparador = document.createElement('div');
+    divSeparador.classList.add('divSeparador');
+
     const title = document.createElement('h2');
     title.textContent = product.fields.name;
 
@@ -79,14 +82,14 @@ function createProductCard(product){
 
     card.appendChild(img);
     card.appendChild(div);
-    div.appendChild(botonEliminar);
     div.appendChild(title);
     div.appendChild(description);
     div.appendChild(price);
     div.appendChild(unidades);
     div.appendChild(totalProducto);
     div.appendChild(form);
-
+    card.appendChild(divSeparador);
+    divSeparador.appendChild(botonEliminar);
     return card;
 }
 

@@ -12,10 +12,10 @@ body{
 .botonEliminar{
     background-color: #ff69b4;
     color: white;
-    border-radius: 5px;
+    border-radius: 50px;
     cursor: pointer;
     border: 2px;
-    padding: 5px 10px;
+    padding: 5px 8px;
     transition-duration: 0.5s;
 }
 .botonEliminar:hover{
@@ -27,6 +27,13 @@ body{
     box-shadow: 0 8px 20px #f593c4f6;
     background-color: rgb(238, 155, 255);
     background-position: right center;
+}
+
+.divSeparador{
+    height:90%;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-end;
 }
 
 #comprarTotal{
@@ -84,10 +91,12 @@ body h1{
 .producto{
     display:flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content:space-around;
     align-items: center;
     background-color: #fff; /*Auxiliar para ver los contenedores*/
     border-radius: 15px;
+    height:320px;
+    width: 450px;
 }
 .infoProducto{
     display:flex;
@@ -131,24 +140,20 @@ button[type="button"],input[type="number"]{
 }
 
 @media screen and (max-width: 768px)  {
-    .contenedorMenu div{
-        display:flex;
-        flex-direction: column;
-    }
 
     .producto img{
-        width: 15em;
-        height: 15em;
+        width: 160px;
+        height: 240px;
     }
     .catalogo{
-        padding-left: 110px; /*Para que no pise el menu*/
-        padding-right:10px;
+        padding-left: 5px; /*Para que no pise el menu*/
+        padding-right:5px;
         padding-top: 0;
         display:flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 0px;
         margin: auto;
     }
     
-
+    
 }

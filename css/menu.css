@@ -19,6 +19,11 @@ body{
     border-radius: 30px;
 }
 
+.carritoTexto{
+    font-size:20px;
+    font-size:x-large;
+}
+
 #barraSuperior .logoMarca {
     height: 150px;
     width: auto; 
@@ -35,6 +40,7 @@ body{
     margin:0;
     z-index: 2;
 }
+
 
 #barraSuperior{
     top:0;
@@ -102,6 +108,8 @@ li a{
     font-size: 20px;
 }
 
+
+
 li a:hover{
     font-weight: 700; /* negrita */
     background-color: #ba68c8; /* paso el mouse -> color */
@@ -167,9 +175,7 @@ footer{
     .menuPrincipal{
         width: 100px;
     }
-    li a,label{
-        font-size: 16px;
-    }
+    
     li a{
         padding: 12px;
     }
@@ -208,9 +214,7 @@ footer{
         transition: top 0.5s ease-in-out, left 0.5s ease-in-out, transform 0.5s ease-in-out;
     }
 
-    li a,label{
-        font-size: 16px;
-    }
+    
     li a{
         padding: 12px;
     }

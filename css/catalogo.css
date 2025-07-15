@@ -3,8 +3,11 @@
 body{
     display:flex;
     flex-direction: column;
+    align-items: center;
 }
-
+header{
+    width:100%;
+}
 
 .catalogo{
     padding-left: 200px; /*Para que no pise el menu*/
@@ -16,6 +19,19 @@ body{
     margin: auto;
     max-width: 80vw;
     /*max-width: 1400px; /*lo limito para MAXIMO 3 productos*/
+}
+.contenedorMenu div select[id="opcionColeccion"],select[id="opcionOrdenar"]{
+    border-radius: 5px;
+    cursor: pointer;
+    border-style:dashed;
+    border-color: aqua;
+    background-color:#fff176;
+}
+
+.contenedorMenu div label{
+    font-size:large;
+    font-weight: bold;
+    color: #333;
 }
 
 .producto{
@@ -76,7 +92,7 @@ button[type="button"],input[type="number"]{
     .contenedorMenu{
         align-items:center;
         align-content: center;
-        justify-content:space-between;
+        justify-content:space-around;
         height: 100%;
         padding-left:1%;
         padding-right:1%;
@@ -98,7 +114,9 @@ button[type="button"],input[type="number"]{
         display:flex;
         flex-direction: column;
         gap: 10px;
-        margin: auto;
+        max-width: 90vw;
+        margin:0;
+        /*margin: auto;*/
     }
     #barraInferior{
         height: 80px;
